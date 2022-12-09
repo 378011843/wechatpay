@@ -1,0 +1,23 @@
+{
+    "name": "ajian/wechatpay",
+    "description": "微信支付sdk",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ajian",
+            "email": "378011843@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "guzzlehttp/guzzle": ">=6.1.1",
+        "wechatpay/wechatpay": "^1.4",
+        "ajian/ajian-helper": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ajian\\WechatPay\\": "src/"
+        }
+    }
+}
