@@ -4,6 +4,7 @@ namespace Ajian\WechatPay;
 
 use Ajian\WechatPay\Util\AesUtil;
 use GuzzleHttp\Client;
+use WeChatPay\Crypto\Rsa;
 
 /**
  * 获取微信支付证书
@@ -49,9 +50,8 @@ class WechatPayCert extends BaseWechatPay
 
     private function generateToken()
     {
-        $signature = AesUtil::generateSignature([
-            'GET',$this->url,$this->timestamp,$this->nonceStr,$this->body
-        ],$this->private_key);
+        $message = "GET\n$this->url\n$this->timestamp\n$this->nonceStr\n$this->body\n";
+        $signature = Rsa::sign($message,$this->private_key);
         # 字段顺序不固定
         return sprintf(
             'mchid="%s",nonce_str="%s",timestamp="%d",serial_no="%s",signature="%s"',

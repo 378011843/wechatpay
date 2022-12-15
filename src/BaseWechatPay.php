@@ -53,6 +53,9 @@ class BaseWechatPay
 
     /**
      * 初始化所需数据
+     * Optional parameters
+     * [appid=>?string,mchid=>?string,v3Api_key=>?string,serial_no=>?string...]
+     * @param null|array $config
      */
     public function __construct($config=null)
     {

@@ -47,23 +47,4 @@ class AesUtil
 
         throw new \RuntimeException('AEAD_AES_256_GCM需要PHP 7.1以上或者安装libsodium-php');
     }
-
-    /**
-     * generate signature
-     * 生成签名
-     * @param $ary array generate data
-     * @param $private_key string private key
-     * @return string
-     */
-    public static function generateSignature($ary,$private_key)
-    {
-        if (empty($ary))
-            throw new \Exception('签名参数不能为空');
-        $message = "";
-        foreach ($ary as $item) {
-            $message .= $item . "\n";
-        }
-        openssl_sign($message, $signature, $private_key, 'sha256WithRSAEncryption');
-        return base64_encode($signature);
-    }
 }
