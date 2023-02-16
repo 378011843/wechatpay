@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=5.5.0",
-        "guzzlehttp/guzzle": ">=6.1.1",
+        "guzzlehttp/guzzle": "~6.5",
         "wechatpay/wechatpay": "^1.4",
         "ajian/ajian-helper": "^1.0"
     },
